@@ -1,0 +1,112 @@
+1. Custom Positional Encoding Layer
+입력되는 시계열 데이터에 순서정보를 넣어주기 위해 positional encoding을 더해줘야 함. 
+(RNN과 LSTM은 순차적으로 데이터를 처리하면서 순서를 내재적으로 학습하지만, transformer는 전체 시퀀스를 동시에 처리하므로 입력 벡터의 순서를 알 수 없음.)
+그래서 위치 인코딩이라는 장치를 사용해서 이 벡터는 시퀀스의 몇번째인지를 알려줘야함. 
+sin/cos함수를 통해 추가적인 파라미터 없이 모델에 위치 정보를 줄 수 있음. 
+
+
+2. Transformer Block (transformer의 기본 구성 블록 중 하나임)
+입력된 데이터들이 서로 어떤 관계에 있는지를 파악하고, 그 관계를 반영해서 정보를 더 잘 이해할 수 있게 만듦. 
+
+ffn = Feed Forward Network (피드포워드 신경망) : Transformer 구조 안에서는 Self-Attention 다음에 항상 붙는 작은 신경망
+첫 번째 Dense 층은 차원을 키우고, 비선형 활성화 함수(ReLU)를 써서 복잡한 패턴을 배움
+두 번째 Dense 층은 다시 원래 차원으로 줄여서 다음 층으로 넘겨줌
+
+attention_output: 어떤 단어가 문장 내에서 어떤 단어들과 관련 있는지 파악하고, ffn은 이 정보를 기반으로 각 단어별로 더 복잡한 의미 표현을 만들어줌
+(self-attention은 관계 파악에 초점이 있고, ffn은 그걸 바탕으로 각 단어의 의미를 정리하고 보강하는 역할을 함)
+
+
+
+3. Load and preprocess data
+신경망(ANN)과 Transformer 모델에 각각 맞게 데이터를 전처리하는 과정
+.value는 DataFrame을 NumPy 배열로 변환시킴
+
+
+
+4. OMA Optimization for Model Architecture
+OMA(Optimizer-based Model Architecture) 최적화를 위해 사용할 *목적 함수 objfun*의 시작 부분임. 
+모델의 하이퍼파라미터들을 받아서 이후 모델을 구성하고, 성능(R², MSE 등)을 기준으로 평가할 수 있도록 설정함.
+
+5. Transformer for time-dependent data
+train_xd의 (샘플 수, 시간 스텝, 특성 수) 형태의 시계열 데이터를 입력으로 받아,
+Transformer를 통해 시간 정보를 학습하고 마지막 스텝의 출력을 뽑아내는 역할을 함. 
+
+transformer_output = Dense(1)(x[:, -1, :]) <-- 마지막 타임스텝만 사용하는 이유: 일반적으로 '미래 예측' 또는 '최종 출력 이 가장 최근 시점의 상태를 기반으로 결정된다고 가정하기 때문. 
+
+
+
+6. NN for time-independent data
+정적인 데이터를 받아서 은닉층 2개로 특징을 추출하고 Dropout으로 과적합을 막고, 마지막 Dense에서 예측용 표현을 만들어냄. 
+
+
+7. Combine outputs
+activation='sigmoid': 결과를 0~1 사이의 확률 값으로 출력
+→ 분류 문제일 경우 (ex. 성공 확률, 일정 초과 확률 등)  (회귀 문제라면 'linear'가 적절할 수 있음)
+((**오잇,,,지금 모델은 회귀 문제로 동작하고 있기 때문에 linear를 써야 더 자연스럽다는디??))
+
+
+8. Compile and train
+val_loss가 100 epoch 동안 개선되지 않으면 조기 종료
+shuffle=False: 시계열 데이터 처리일 경우 순서를 유지하기 위해 섞지 않음
+
+range check: 각 요소가 상한/하한을 벗어나지 않도록 보정. 최적화 알고리즘에서 범위 외 값이 생기는 것을 방지 (그 밑에는 변수 범위를 정의해놓은 것)
+--> OMA와 같은 최적화 알고리즘이 50번 반복하면서 10개의 후보 솔루션을 유지함
+
+회귀 모델의 구조와 하이퍼파라미터를 OMA 최적화로 자동 튜닝하는 목적 함수를 정의한 것.
+최적화 대상은 Dense layer neuron 수, Transformer 파라미터, 드롭아웃 비율, 학습률 등이고,
+평가지표는 검증 손실의 최소값 (MSE)임. 
+
+
+9. OMA Naked Eye Phase (OMA알고리즘의 초기 단계)
+ 최적화를 시작하기 전에 초기 개체(population) 를 생성하고 그들의 성능을 평가하는 과정.
+무작위 첫 개체 생성 > Naked Eye규칙으로 나머지 개체 생성> 범위 재조정(값 범위 스케일링) > 개체 평가
+
+10. OMA Main Loop
+이전 단계에서 생성한 개체들을 반복적으로 개선해 나가면서 최적 해를 찾는 과정
+총 50번 반복, 매 반복마다 전체 population을 갱신 
+
+ Objective Lens Phase(탐색 강화)와 Eyepiece Phase(fine-tuning)로 개체의 성능(적합도)를 향상시킴
+
+
+11. Plot OMA convergence
+OMA 실행 결과를 시각화하여 반복에 따른 모델 성능 향상 과정을 그래프로 보여줌 (우하향)
+
+
+12. Print optimal parameters
+ OMA 최적화 결과로 찾은 최적 하이퍼파라미터와 해당 성능(MSE)을 출력하는 부분
+bestsol: 가장 성능이 좋은 하이퍼파라미터 조합
+
+
+13. Train model with optimal parameters
+OMA로 찾은 최적의 하이퍼파라미터(bestsol)를 변수에 저장해서 이후 모델을 이 최적 파라미터로 최종 훈련하기 위해 준비하는 부분
+
+14. Build and train final model
+최종 하이퍼파라미터로 구성된 하이브리드 모델을 학습하는 전체 과정을 담고 있음 
+
+15. Plot training history
+모델 학습 과정에서의 손실 함수 값 변화를 시각화함 
+학습 중 기록된 훈련 손실값(loss)와 검증 손실값(val_loss)를 비교해 과적합 여부 판단. (둘의 loss가 잘 수렴하면 좋은 학습!)
+
+16. Optimize output weights
+기존 모델의 전체 학습이 끝난 후, 출력층의 가중치만 따로 떼어내서 sigmoid + MSE 기준으로 다시 최적화하려는 것
+
+***이렇게 하는 이유
+1. 성능 미세 조정
+모델 전체는 이미 잘 학습되었지만, 마지막 출력층(결정층) 하나만 조금만 바꿔도 예측 정확도가 개선될 수 있음. 
+2. 모델은 고정하고 출력층만 빠르게 튜닝. (마지막 층은 선형 변환만 포함하기 때문에 수학적으로 간단하고 빠르게 최적화할 수 있음. 
+3. 비표준 손실 함수 적용 가능.
+이 방식은 직접 예측값을 만들고, 원하는 방식으로 손실을 정의할 수 있음. 
+예: 가중치 MSE, 비대칭 손실, penalty term 추가 등
+
+
+
+17. OMA for weight optimization
+OMA를 사용해서 출력층(Concatenate 이후 Dense layer)의 가중치만 따로 최적화하는 전체 과정
+
+
+20. Evaluation metrics for OMA-optimized model
+21. Evaluation metrics for default model
+기본 모델(ADAM 옵티마이저 사용)을 평가하는 과정
+OMA최적화 모델과 기본모델을 비교해 OMA최적화 모델이 더 좋은 성능을 보이면 (예: R²가 더 높고, MSE, RMSE, MAE가 더 낮다면) OMA 최적화가 효과적임을 알 수 있음. 
+기본 모델과 최적화된 모델의 성능 차이를 비교하고, 어떤 모델이 더 우수한 성능을 보였는지를 분석할 수 있음.
+
