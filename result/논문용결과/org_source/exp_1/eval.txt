@@ -1,0 +1,260 @@
+(181, 30) (45, 30)
+(181, 14)
+(45, 14)
+(181, 15)
+(45, 15)
+(181, 3, 5) (45, 3, 5)
+(181,)
+(45,)
+Loading...:   0%|          | 0/10 [00:00<?, ?it/s]2025-05-27 13:22:02.869723: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-27 13:22:05.461177: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22351 MB memory:  -> device: 0, name: NVIDIA RTX A5000, pci bus id: 0000:81:00.0, compute capability: 8.6
+2025-05-27 13:22:05.463253: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22351 MB memory:  -> device: 1, name: NVIDIA RTX A5000, pci bus id: 0000:a1:00.0, compute capability: 8.6
+2025-05-27 13:22:05.465144: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 20548 MB memory:  -> device: 2, name: NVIDIA RTX A5000, pci bus id: 0000:c1:00.0, compute capability: 8.6
+2025-05-27 13:22:05.467028: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 20090 MB memory:  -> device: 3, name: NVIDIA RTX A5000, pci bus id: 0000:e1:00.0, compute capability: 8.6
+2025-05-27 13:22:09.883882: I tensorflow/stream_executor/cuda/cuda_blas.cc:1786] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+2025-05-27 13:22:10.558991: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8202
+Loading...: 100%|██████████| 10/10 [03:39<00:00, 22.00s/it]
+Loading...: 100%|██████████| 10/10 [08:25<00:00, 50.51s/it]
+Loading...: 100%|██████████| 10/10 [08:38<00:00, 51.83s/it]
+Loading...: 100%|██████████| 10/10 [08:39<00:00, 51.94s/it]
+Loading...: 100%|██████████| 10/10 [09:02<00:00, 54.23s/it]
+Loading...: 100%|██████████| 10/10 [08:07<00:00, 48.79s/it]
+Loading...: 100%|██████████| 10/10 [05:00<00:00, 30.09s/it]
+Loading...: 100%|██████████| 10/10 [06:32<00:00, 39.22s/it]
+Loading...: 100%|██████████| 10/10 [05:25<00:00, 32.53s/it]
+Loading...: 100%|██████████| 10/10 [06:23<00:00, 38.32s/it]
+Loading...: 100%|██████████| 10/10 [05:15<00:00, 31.56s/it]
+Loading...: 100%|██████████| 10/10 [05:59<00:00, 36.00s/it]
+Loading...: 100%|██████████| 10/10 [05:23<00:00, 32.33s/it]
+Loading...: 100%|██████████| 10/10 [05:36<00:00, 33.63s/it]
+Loading...: 100%|██████████| 10/10 [05:14<00:00, 31.46s/it]
+Loading...: 100%|██████████| 10/10 [06:34<00:00, 39.49s/it]
+Loading...: 100%|██████████| 10/10 [07:46<00:00, 46.62s/it]
+...
+Loading...: 100%|██████████| 10/10 [07:15<00:00, 43.57s/it]
+Loading...: 100%|██████████| 10/10 [08:50<00:00, 53.01s/it]
+Loading...: 100%|██████████| 10/10 [07:37<00:00, 45.77s/it]
+Loading...: 100%|██████████| 10/10 [06:43<00:00, 40.38s/it]
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+CPU times: user 5h 34min 48s, sys: 2h 11min, total: 7h 45min 48s
+Wall time: 5h 57min 30s
+Text(0, 0.5, 'Objective function value')
+
+MSE = 0.001401
+ 
+Optimal Parameters:
+NN Number of Neurons           = 6
+BiGRU Number of Units          = 5
+NN Dense Number of Neurons     = 17
+BiGRU Dense Number of Neurons  = 4
+NN Dropout Rate                = 0.0000
+BiGRU Dropout Rate             = 0.1972
+Learning Rate                  = 0.0155
+NN Dropout Rate     =  0.0
+BiGRU Dropout Rate  =  0.19721559027616772
+Learning Rate       =  0.015516929264999422
+Epoch 1/500
+1/1 [==============================] - ETA: 0s - loss: 0.0293
+Epoch 1: val_loss improved from inf to 0.03144, saving model to best_weights.hdf5
+1/1 [==============================] - 5s 5s/step - loss: 0.0293 - val_loss: 0.0314
+Epoch 2/500
+1/1 [==============================] - ETA: 0s - loss: 0.0283
+Epoch 2: val_loss improved from 0.03144 to 0.02864, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 81ms/step - loss: 0.0283 - val_loss: 0.0286
+Epoch 3/500
+1/1 [==============================] - ETA: 0s - loss: 0.0236
+Epoch 3: val_loss improved from 0.02864 to 0.02847, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 89ms/step - loss: 0.0236 - val_loss: 0.0285
+Epoch 4/500
+1/1 [==============================] - ETA: 0s - loss: 0.0211
+Epoch 4: val_loss did not improve from 0.02847
+1/1 [==============================] - 0s 58ms/step - loss: 0.0211 - val_loss: 0.0285
+Epoch 5/500
+1/1 [==============================] - ETA: 0s - loss: 0.0190
+Epoch 5: val_loss improved from 0.02847 to 0.02696, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 77ms/step - loss: 0.0190 - val_loss: 0.0270
+Epoch 6/500
+1/1 [==============================] - ETA: 0s - loss: 0.0149
+Epoch 6: val_loss did not improve from 0.02696
+1/1 [==============================] - 0s 57ms/step - loss: 0.0149 - val_loss: 0.0271
+Epoch 7/500
+...
+Epoch 500/500
+1/1 [==============================] - ETA: 0s - loss: 4.1656e-04
+Epoch 500: val_loss did not improve from 0.00245
+1/1 [==============================] - 0s 57ms/step - loss: 4.1656e-04 - val_loss: 0.0040
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+
+CPU times: user 34.6 s, sys: 13 s, total: 47.5 s
+Wall time: 36.7 s
+(181, 21)
+[-1.         -1.         -1.         -1.         -1.         -1.
+ -1.         -1.         -1.          0.32005662 -1.          1.
+ -1.         -1.         -1.         -1.         -1.         -1.
+ -1.          1.         -1.        ]
+Train_MSE: [0.00089032]
+W1 = -1.000000
+W2 = -1.000000
+W3 = -1.000000
+W4 = -1.000000
+W5 = -1.000000
+W6 = -1.000000
+W7 = -1.000000
+W8 = -1.000000
+W9 = -1.000000
+W10 = 0.320057
+W11 = -1.000000
+W12 = 1.000000
+W13 = -1.000000
+W14 = -1.000000
+W15 = -1.000000
+W16 = -1.000000
+W17 = -1.000000
+W18 = -1.000000
+W19 = -1.000000
+W20 = 1.000000
+W21 = -1.000000
+The sum of the weight: -15.679943375333995
+(45,)
+R: 0.9861
+R2: 0.8831
+MSE: 0.0033
+RMSE: 0.0578
+MAE: 0.0437
+MAPE: 0.0949
+
+(181, 30) (45, 30)
+(181, 14)
+(45, 14)
+(181, 15)
+(45, 15)
+(181, 3, 5) (45, 3, 5)
+(181,)
+(45,)
+Loading...:   0%|          | 0/10 [00:00<?, ?it/s]2025-05-27 13:22:02.869723: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-27 13:22:05.461177: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22351 MB memory:  -> device: 0, name: NVIDIA RTX A5000, pci bus id: 0000:81:00.0, compute capability: 8.6
+2025-05-27 13:22:05.463253: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 22351 MB memory:  -> device: 1, name: NVIDIA RTX A5000, pci bus id: 0000:a1:00.0, compute capability: 8.6
+2025-05-27 13:22:05.465144: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 20548 MB memory:  -> device: 2, name: NVIDIA RTX A5000, pci bus id: 0000:c1:00.0, compute capability: 8.6
+2025-05-27 13:22:05.467028: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 20090 MB memory:  -> device: 3, name: NVIDIA RTX A5000, pci bus id: 0000:e1:00.0, compute capability: 8.6
+2025-05-27 13:22:09.883882: I tensorflow/stream_executor/cuda/cuda_blas.cc:1786] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+2025-05-27 13:22:10.558991: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8202
+Loading...: 100%|██████████| 10/10 [03:39<00:00, 22.00s/it]
+Loading...: 100%|██████████| 10/10 [08:25<00:00, 50.51s/it]
+Loading...: 100%|██████████| 10/10 [08:38<00:00, 51.83s/it]
+Loading...: 100%|██████████| 10/10 [08:39<00:00, 51.94s/it]
+Loading...: 100%|██████████| 10/10 [09:02<00:00, 54.23s/it]
+Loading...: 100%|██████████| 10/10 [08:07<00:00, 48.79s/it]
+Loading...: 100%|██████████| 10/10 [05:00<00:00, 30.09s/it]
+Loading...: 100%|██████████| 10/10 [06:32<00:00, 39.22s/it]
+Loading...: 100%|██████████| 10/10 [05:25<00:00, 32.53s/it]
+Loading...: 100%|██████████| 10/10 [06:23<00:00, 38.32s/it]
+Loading...: 100%|██████████| 10/10 [05:15<00:00, 31.56s/it]
+Loading...: 100%|██████████| 10/10 [05:59<00:00, 36.00s/it]
+Loading...: 100%|██████████| 10/10 [05:23<00:00, 32.33s/it]
+Loading...: 100%|██████████| 10/10 [05:36<00:00, 33.63s/it]
+Loading...: 100%|██████████| 10/10 [05:14<00:00, 31.46s/it]
+Loading...: 100%|██████████| 10/10 [06:34<00:00, 39.49s/it]
+Loading...: 100%|██████████| 10/10 [07:46<00:00, 46.62s/it]
+...
+Loading...: 100%|██████████| 10/10 [07:15<00:00, 43.57s/it]
+Loading...: 100%|██████████| 10/10 [08:50<00:00, 53.01s/it]
+Loading...: 100%|██████████| 10/10 [07:37<00:00, 45.77s/it]
+Loading...: 100%|██████████| 10/10 [06:43<00:00, 40.38s/it]
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+CPU times: user 5h 34min 48s, sys: 2h 11min, total: 7h 45min 48s
+Wall time: 5h 57min 30s
+Text(0, 0.5, 'Objective function value')
+
+MSE = 0.001401
+ 
+Optimal Parameters:
+NN Number of Neurons           = 6
+BiGRU Number of Units          = 5
+NN Dense Number of Neurons     = 17
+BiGRU Dense Number of Neurons  = 4
+NN Dropout Rate                = 0.0000
+BiGRU Dropout Rate             = 0.1972
+Learning Rate                  = 0.0155
+NN Dropout Rate     =  0.0
+BiGRU Dropout Rate  =  0.19721559027616772
+Learning Rate       =  0.015516929264999422
+Epoch 1/500
+1/1 [==============================] - ETA: 0s - loss: 0.0293
+Epoch 1: val_loss improved from inf to 0.03144, saving model to best_weights.hdf5
+1/1 [==============================] - 5s 5s/step - loss: 0.0293 - val_loss: 0.0314
+Epoch 2/500
+1/1 [==============================] - ETA: 0s - loss: 0.0283
+Epoch 2: val_loss improved from 0.03144 to 0.02864, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 81ms/step - loss: 0.0283 - val_loss: 0.0286
+Epoch 3/500
+1/1 [==============================] - ETA: 0s - loss: 0.0236
+Epoch 3: val_loss improved from 0.02864 to 0.02847, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 89ms/step - loss: 0.0236 - val_loss: 0.0285
+Epoch 4/500
+1/1 [==============================] - ETA: 0s - loss: 0.0211
+Epoch 4: val_loss did not improve from 0.02847
+1/1 [==============================] - 0s 58ms/step - loss: 0.0211 - val_loss: 0.0285
+Epoch 5/500
+1/1 [==============================] - ETA: 0s - loss: 0.0190
+Epoch 5: val_loss improved from 0.02847 to 0.02696, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 77ms/step - loss: 0.0190 - val_loss: 0.0270
+Epoch 6/500
+1/1 [==============================] - ETA: 0s - loss: 0.0149
+Epoch 6: val_loss did not improve from 0.02696
+1/1 [==============================] - 0s 57ms/step - loss: 0.0149 - val_loss: 0.0271
+Epoch 7/500
+...
+Epoch 500/500
+1/1 [==============================] - ETA: 0s - loss: 4.1656e-04
+Epoch 500: val_loss did not improve from 0.00245
+1/1 [==============================] - 0s 57ms/step - loss: 4.1656e-04 - val_loss: 0.0040
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+
+CPU times: user 34.6 s, sys: 13 s, total: 47.5 s
+Wall time: 36.7 s
+(181, 21)
+[-1.         -1.         -1.         -1.         -1.         -1.
+ -1.         -1.         -1.          0.32005662 -1.          1.
+ -1.         -1.         -1.         -1.         -1.         -1.
+ -1.          1.         -1.        ]
+Train_MSE: [0.00089032]
+W1 = -1.000000
+W2 = -1.000000
+W3 = -1.000000
+W4 = -1.000000
+W5 = -1.000000
+W6 = -1.000000
+W7 = -1.000000
+W8 = -1.000000
+W9 = -1.000000
+W10 = 0.320057
+W11 = -1.000000
+W12 = 1.000000
+W13 = -1.000000
+W14 = -1.000000
+W15 = -1.000000
+W16 = -1.000000
+W17 = -1.000000
+W18 = -1.000000
+W19 = -1.000000
+W20 = 1.000000
+W21 = -1.000000
+The sum of the weight: -15.679943375333995
+(45,)
+
+R: 0.9861
+R2: 0.8831
+MSE: 0.0033
+RMSE: 0.0578
+MAE: 0.0437
+MAPE: 0.0949
+
+Adam
+R: 0.9678
+R2: 0.9141
+MSE: 0.0025
+RMSE: 0.0495
+MAE: 0.0395
+MAPE: 0.0953

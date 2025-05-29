@@ -1,0 +1,104 @@
+(181, 30) (45, 30)
+(181, 14)
+(45, 14)
+(181, 15)
+(45, 15)
+(181, 3, 5) (45, 3, 5)
+(181,)
+(45,)
+Loading...:   0%|          | 0/10 [00:00<?, ?it/s]
+Loading...:  10%|█         | 1/10 [00:13<01:59, 13.24s/it]
+MSE = 0.001513
+ 
+Optimal Parameters:
+NN Number of Neurons           = 43
+BiGRU Number of Units          = 9
+NN Dense Number of Neurons     = 10
+BiGRU Dense Number of Neurons  = 16
+NN Dropout Rate                = 0.0000
+BiGRU Dropout Rate             = 0.0212
+Learning Rate                  = 0.0607
+NN Dropout Rate     =  0.0
+BiGRU Dropout Rate  =  0.021217820993005763
+Learning Rate       =  0.06066884878045571
+Epoch 1/500
+1/1 [==============================] - ETA: 0s - loss: 0.0412
+Epoch 1: val_loss improved from inf to 0.17698, saving model to best_weights.hdf5
+1/1 [==============================] - 6s 6s/step - loss: 0.0412 - val_loss: 0.1770
+Epoch 2/500
+1/1 [==============================] - ETA: 0s - loss: 0.1649
+Epoch 2: val_loss did not improve from 0.17698
+1/1 [==============================] - 0s 67ms/step - loss: 0.1649 - val_loss: 0.2088
+Epoch 3/500
+1/1 [==============================] - ETA: 0s - loss: 0.2171
+Epoch 3: val_loss improved from 0.17698 to 0.04315, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 71ms/step - loss: 0.2171 - val_loss: 0.0431
+Epoch 4/500
+1/1 [==============================] - ETA: 0s - loss: 0.0432
+Epoch 4: val_loss did not improve from 0.04315
+1/1 [==============================] - 0s 54ms/step - loss: 0.0432 - val_loss: 0.0518
+Epoch 5/500
+1/1 [==============================] - ETA: 0s - loss: 0.0431
+Epoch 5: val_loss did not improve from 0.04315
+1/1 [==============================] - 0s 54ms/step - loss: 0.0431 - val_loss: 0.0480
+Epoch 6/500
+1/1 [==============================] - ETA: 0s - loss: 0.0394
+Epoch 6: val_loss improved from 0.04315 to 0.03053, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 71ms/step - loss: 0.0394 - val_loss: 0.0305
+Epoch 7/500
+...
+Epoch 500/500
+1/1 [==============================] - ETA: 0s - loss: 3.4337e-04
+Epoch 500: val_loss did not improve from 0.00302
+1/1 [==============================] - 0s 54ms/step - loss: 3.4337e-04 - val_loss: 0.0072
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+
+CPU times: user 33.9 s, sys: 13.1 s, total: 46.9 s
+Wall time: 35.9 s
+(181, 26)
+[ 1.          0.28037829 -0.41729821 -0.78286664  0.17200267 -0.72355354
+ -0.60333678  0.19508616  0.87541814  0.8021527  -0.59887116  0.57368831
+ -0.76459772 -0.83011725 -0.52060811  0.35912596 -0.99387336 -0.34488238
+ -0.78457076 -0.99877913  0.73068048  0.75175159 -0.19962605 -1.
+  0.64594573  0.02205952]
+Train_MSE: [0.00035341]
+W1 = 1.000000
+W2 = 0.280378
+W3 = -0.417298
+W4 = -0.782867
+W5 = 0.172003
+W6 = -0.723554
+W7 = -0.603337
+W8 = 0.195086
+W9 = 0.875418
+W10 = 0.802153
+W11 = -0.598871
+W12 = 0.573688
+W13 = -0.764598
+W14 = -0.830117
+W15 = -0.520608
+W16 = 0.359126
+W17 = -0.993873
+W18 = -0.344882
+W19 = -0.784571
+W20 = -0.998779
+W21 = 0.730680
+W22 = 0.751752
+W23 = -0.199626
+W24 = -1.000000
+W25 = 0.645946
+W26 = 0.022060
+The sum of the weight: -3.154691553082025
+(45,)
+R: 0.9620
+R2: 0.7861
+MSE: 0.0061
+RMSE: 0.0782
+MAE: 0.0684
+MAPE: 0.1868
+R: 0.9747
+R2: 0.8945
+MSE: 0.0030
+RMSE: 0.0549
+MAE: 0.0421
+MAPE: 0.1230

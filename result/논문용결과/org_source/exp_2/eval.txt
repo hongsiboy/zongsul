@@ -1,0 +1,120 @@
+(181, 30) (45, 30)
+(181, 14)
+(45, 14)
+(181, 15)
+(45, 15)
+(181, 3, 5) (45, 3, 5)
+(181,)
+(45,)
+Loading...: 100%|██████████| 10/10 [03:28<00:00, 20.85s/it]
+Loading...: 100%|██████████| 10/10 [06:19<00:00, 37.98s/it]
+Loading...: 100%|██████████| 10/10 [05:06<00:00, 30.64s/it]
+Loading...: 100%|██████████| 10/10 [04:51<00:00, 29.10s/it]
+Loading...: 100%|██████████| 10/10 [04:54<00:00, 29.50s/it]
+Loading...: 100%|██████████| 10/10 [05:41<00:00, 34.10s/it]
+Loading...: 100%|██████████| 10/10 [04:51<00:00, 29.19s/it]
+Loading...: 100%|██████████| 10/10 [04:50<00:00, 29.01s/it]
+Loading...: 100%|██████████| 10/10 [04:45<00:00, 28.51s/it]
+Loading...: 100%|██████████| 10/10 [04:51<00:00, 29.13s/it]
+Loading...: 100%|██████████| 10/10 [05:07<00:00, 30.73s/it]
+Loading...: 100%|██████████| 10/10 [04:18<00:00, 25.81s/it]
+Loading...: 100%|██████████| 10/10 [03:58<00:00, 23.84s/it]
+Loading...: 100%|██████████| 10/10 [04:23<00:00, 26.38s/it]
+Loading...: 100%|██████████| 10/10 [05:16<00:00, 31.66s/it]
+Loading...: 100%|██████████| 10/10 [04:06<00:00, 24.65s/it]
+Loading...: 100%|██████████| 10/10 [04:00<00:00, 24.02s/it]
+Loading...: 100%|██████████| 10/10 [04:56<00:00, 29.62s/it]
+Loading...: 100%|██████████| 10/10 [04:22<00:00, 26.20s/it]
+Loading...: 100%|██████████| 10/10 [04:26<00:00, 26.66s/it]
+Loading...: 100%|██████████| 10/10 [04:27<00:00, 26.74s/it]
+Loading...: 100%|██████████| 10/10 [05:02<00:00, 30.26s/it]
+Loading...: 100%|██████████| 10/10 [04:46<00:00, 28.60s/it]
+Loading...: 100%|██████████| 10/10 [04:13<00:00, 25.36s/it]
+Loading...: 100%|██████████| 10/10 [04:55<00:00, 29.52s/it]
+...
+Loading...: 100%|██████████| 10/10 [04:13<00:00, 25.34s/it]
+Loading...: 100%|██████████| 10/10 [03:43<00:00, 22.38s/it]
+Loading...: 100%|██████████| 10/10 [04:04<00:00, 24.48s/it]
+Loading...: 100%|██████████| 10/10 [04:26<00:00, 26.64s/it]
+Loading...: 100%|██████████| 10/10 [04:05<00:00, 24.57s/it]
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+CPU times: user 3h 32min 27s, sys: 1h 9min, total: 4h 41min 27s
+Wall time: 3h 47min 30s
+
+Text(0, 0.5, 'Objective function value')
+
+MSE = 0.002090
+ 
+Optimal Parameters:
+NN Number of Neurons           = 44
+BiGRU Number of Units          = 66
+NN Dense Number of Neurons     = 5
+BiGRU Dense Number of Neurons  = 5
+NN Dropout Rate                = 0.2222
+BiGRU Dropout Rate             = 0.1941
+Learning Rate                  = 0.0387
+NN Dropout Rate     =  0.22223007781015874
+BiGRU Dropout Rate  =  0.19409692878070572
+Learning Rate       =  0.03874094902710734
+Epoch 1/500
+1/1 [==============================] - ETA: 0s - loss: 0.0265
+Epoch 1: val_loss improved from inf to 0.24440, saving model to best_weights.hdf5
+1/1 [==============================] - 5s 5s/step - loss: 0.0265 - val_loss: 0.2444
+Epoch 2/500
+1/1 [==============================] - ETA: 0s - loss: 0.2306
+Epoch 2: val_loss improved from 0.24440 to 0.23331, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 86ms/step - loss: 0.2306 - val_loss: 0.2333
+Epoch 3/500
+1/1 [==============================] - ETA: 0s - loss: 0.2435
+Epoch 3: val_loss improved from 0.23331 to 0.15213, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 74ms/step - loss: 0.2435 - val_loss: 0.1521
+Epoch 4/500
+1/1 [==============================] - ETA: 0s - loss: 0.1347
+Epoch 4: val_loss improved from 0.15213 to 0.02391, saving model to best_weights.hdf5
+1/1 [==============================] - 0s 69ms/step - loss: 0.1347 - val_loss: 0.0239
+Epoch 5/500
+1/1 [==============================] - ETA: 0s - loss: 0.0203
+Epoch 5: val_loss did not improve from 0.02391
+1/1 [==============================] - 0s 55ms/step - loss: 0.0203 - val_loss: 0.0309
+Epoch 6/500
+1/1 [==============================] - ETA: 0s - loss: 0.0284
+Epoch 6: val_loss did not improve from 0.02391
+1/1 [==============================] - 0s 56ms/step - loss: 0.0284 - val_loss: 0.0272
+Epoch 7/500
+...
+Epoch 500/500
+1/1 [==============================] - ETA: 0s - loss: 3.6959e-04
+Epoch 500: val_loss did not improve from 0.02026
+1/1 [==============================] - 0s 52ms/step - loss: 3.6959e-04 - val_loss: 0.0220
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+
+CPU times: user 32.2 s, sys: 13.3 s, total: 45.5 s
+Wall time: 34.7 s
+(181, 10)
+[ 0.94117042 -1.         -0.40822756  0.43142386 -0.25134342 -0.98829687
+  1.         -0.29242147 -0.88621667 -1.        ]
+Train_MSE: [0.000715]
+W1 = 0.941170
+W2 = -1.000000
+W3 = -0.408228
+W4 = 0.431424
+W5 = -0.251343
+W6 = -0.988297
+W7 = 1.000000
+W8 = -0.292421
+W9 = -0.886217
+W10 = -1.000000
+The sum of the weight: -2.453911706985674
+(45,)
+R: 0.6634
+R2: 0.4117
+MSE: 0.0168
+RMSE: 0.1296
+MAE: 0.0927
+MAPE: 0.2625
+R: 0.5533
+R2: 0.2907
+MSE: 0.0203
+RMSE: 0.1424
+MAE: 0.1117
+MAPE: 0.2944
