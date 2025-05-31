@@ -1,0 +1,15 @@
+OMA-Optimized Model Evaluation:
+R: 0.9088
+R2: 0.7521
+MSE: 0.0070
+RMSE: 0.0835
+MAE: 0.0633
+MAPE: 0.1659
+
+Default Model Evaluation (ADAM):
+R: 0.9129
+R2: 0.8180
+MSE: 0.0051
+RMSE: 0.0715
+MAE: 0.0501
+MAPE: 0.1214
